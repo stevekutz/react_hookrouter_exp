@@ -1,16 +1,14 @@
-import React from 'react';
-import Home from './comp/Home';
-import About from './comp/About';
-import Dynamic from './comp/Dynamic';
-
-
-// import {useRoutes} from 'hookrouter';
+import React from "react";
+import Users from "./components/Users";
+import Contact from "./components/Contact";
+import About from "./components/About";
+import Home from "./components/Home";
 
 const routes = {
-    '/': () => <Home />,
-    '/about': () => <About />,
-    '/dynamic': () => <Dynamic />
-
-}
+//   "/": () => <Home />,
+  "/user": () => <Users />,
+  "/about": () => <About />,
+  "/contact": () => <Contact />
+};
 
 export default routes;

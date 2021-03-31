@@ -1,8 +1,11 @@
 // import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import {useRoutes, A} from 'hookrouter';
+import {useRoutes, A, useRedirect} from 'hookrouter';
 
-import router from './router';
+// import routes from './router_old';
+import routes from './router';
+import NoPageFound from "./components/NoPageFound";
 // import ReactDOM from 'react-dom';
 // import Home from './comp/Home';
 // import About from './comp/About';
@@ -19,17 +22,24 @@ import router from './router';
 
 // }
 
-const App = () => {
+// const App = () => {
+function App() {
+//   useRedirect('/user', '/about', '/contact');
+  const routeResult = useRoutes(routes);
 
-    const routeResult = useRoutes(router);
-    return (
-        <div>
-            <A href = '/' > Home </A> 
-            <A href = '/about' > About </A>
-            <A href = '/dynamic' > Dynamic </A>
-            {routeResult}
-        </div>
-    );
+//   return routeResult;  
+
+
+  return (
+    <div className="App">
+      <A href="/user">Users Page</A> <br />
+      <A href="/about">About Page</A>
+      <br />
+      <A href="/contact">Contacts Page</A> <br />
+      {routeResult || <NoPageFound />}
+    </div>
+  );
+
 }
 
 export default App;
